@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+<bean id ="airtel" class = "com.selenium.objectdi.Airtel"></bean>
+
+<bean id = "vodafone" class ="com.selenium.objectdi.Vodafone"></bean>
+
+<bean id = "mobile" class = "com.selenium.objectdi.Mobile">
+	<property name = "sim" ref = "vodafone" />
+</bean>
+
+<context:annotation-config />
+
+<bean id="heartObject" class="com.selenium.autowired.Heart">
+	<property name="nameOfAnimal" value="Human"/>
+	<property name="noOfHeart" value="1"/>
+</bean>
+
+<bean id="octopusObject" class="com.selenium.autowired.Heart">
+	<property name="nameOfAnimal" value="Octopus"/>
+	<property name="noOfHeart" value="3"/>
+</bean>
+
+<bean id="human" class="com.selenium.autowired.Human">
+</bean>
+
+<bean id="stu" class="com.selenium.di.Student">
+	<property name="id" value="1001"></property>
+	<property name="mathcheat">
+		<bean class="com.selenium.di.MathCheat"></bean>
+	</property>
+</bean>
+<context:property-placeholder location="classpath:student-info.properties"/>
+
+<bean id="student" class="com.selenium.annotaion.Student">
+	
+</bean>
+
+	
+
+</beans>
+
